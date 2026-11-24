@@ -1,0 +1,11 @@
+/.venv/
+/data/
+/runs/
+/outputs/.work/
+**/__pycache__/
+*.py[cod]
+*.pt
+*.pth
+*.safetensors
+*.ckpt
+*.part

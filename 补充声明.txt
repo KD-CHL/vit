@@ -1,0 +1,8 @@
+第三方材料与权利声明
+
+样例拼图、错分图片和 Grad-CAM 底图来自 Oxford-IIIT Pet（O. M. Parkhi、A. Vedaldi、A. Zisserman、C. V. Jawahar，Cats and Dogs，CVPR 2012）。数据集按官网列出的 CC BY-SA 4.0 提供，照片版权归原权利人。对示例图所做的改动包括缩放、拼图排版和热力图叠加，包含原图的派生图沿用 CC BY-SA 4.0。
+数据集：https://www.robots.ox.ac.uk/~vgg/data/pets/
+许可：https://creativecommons.org/licenses/by-sa/4.0/
+
+ViT-B/16 初始化权重由 timm 发布，权重许可为 Apache-2.0，运行时从发布源下载。
+权重来源：https://huggingface.co/timm/vit_base_patch16_224.augreg_in21k_ft_in1k

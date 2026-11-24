@@ -1,0 +1,351 @@
+{
+  "split_seed": 42,
+  "counts": {
+    "train": 3312,
+    "val": 368,
+    "test": 3669
+  },
+  "breed_counts": [
+    {
+      "id": 0,
+      "breed": "Abyssinian",
+      "species": "cat",
+      "train": 90,
+      "val": 10,
+      "test": 98
+    },
+    {
+      "id": 1,
+      "breed": "American Bulldog",
+      "species": "dog",
+      "train": 90,
+      "val": 10,
+      "test": 100
+    },
+    {
+      "id": 2,
+      "breed": "American Pit Bull Terrier",
+      "species": "dog",
+      "train": 90,
+      "val": 10,
+      "test": 100
+    },
+    {
+      "id": 3,
+      "breed": "Basset Hound",
+      "species": "dog",
+      "train": 90,
+      "val": 10,
+      "test": 100
+    },
+    {
+      "id": 4,
+      "breed": "Beagle",
+      "species": "dog",
+      "train": 90,
+      "val": 10,
+      "test": 100
+    },
+    {
+      "id": 5,
+      "breed": "Bengal",
+      "species": "cat",
+      "train": 90,
+      "val": 10,
+      "test": 100
+    },
+    {
+      "id": 6,
+      "breed": "Birman",
+      "species": "cat",
+      "train": 90,
+      "val": 10,
+      "test": 100
+    },
+    {
+      "id": 7,
+      "breed": "Bombay",
+      "species": "cat",
+      "train": 87,
+      "val": 9,
+      "test": 88
+    },
+    {
+      "id": 8,
+      "breed": "Boxer",
+      "species": "dog",
+      "train": 90,
+      "val": 10,
+      "test": 99
+    },
+    {
+      "id": 9,
+      "breed": "British Shorthair",
+      "species": "cat",
+      "train": 90,
+      "val": 10,
+      "test": 100
+    },
+    {
+      "id": 10,
+      "breed": "Chihuahua",
+      "species": "dog",
+      "train": 90,
+      "val": 10,
+      "test": 100
+    },
+    {
+      "id": 11,
+      "breed": "Egyptian Mau",
+      "species": "cat",
+      "train": 84,
+      "val": 9,
+      "test": 97
+    },
+    {
+      "id": 12,
+      "breed": "English Cocker Spaniel",
+      "species": "dog",
+      "train": 86,
+      "val": 10,
+      "test": 100
+    },
+    {
+      "id": 13,
+      "breed": "English Setter",
+      "species": "dog",
+      "train": 90,
+      "val": 10,
+      "test": 100
+    },
+    {
+      "id": 14,
+      "breed": "German Shorthaired",
+      "species": "dog",
+      "train": 90,
+      "val": 10,
+      "test": 100
+    },
+    {
+      "id": 15,
+      "breed": "Great Pyrenees",
+      "species": "dog",
+      "train": 90,
+      "val": 10,
+      "test": 100
+    },
+    {
+      "id": 16,
+      "breed": "Havanese",
+      "species": "dog",
+      "train": 90,
+      "val": 10,
+      "test": 100
+    },
+    {
+      "id": 17,
+      "breed": "Japanese Chin",
+      "species": "dog",
+      "train": 90,
+      "val": 10,
+      "test": 100
+    },
+    {
+      "id": 18,
+      "breed": "Keeshond",
+      "species": "dog",
+      "train": 90,
+      "val": 10,
+      "test": 99
+    },
+    {
+      "id": 19,
+      "breed": "Leonberger",
+      "species": "dog",
+      "train": 90,
+      "val": 10,
+      "test": 100
+    },
+    {
+      "id": 20,
+      "breed": "Maine Coon",
+      "species": "cat",
+      "train": 90,
+      "val": 10,
+      "test": 100
+    },
+    {
+      "id": 21,
+      "breed": "Miniature Pinscher",
+      "species": "dog",
+      "train": 90,
+      "val": 10,
+      "test": 100
+    },
+    {
+      "id": 22,
+      "breed": "Newfoundland",
+      "species": "dog",
+      "train": 86,
+      "val": 10,
+      "test": 100
+    },
+    {
+      "id": 23,
+      "breed": "Persian",
+      "species": "cat",
+      "train": 90,
+      "val": 10,
+      "test": 100
+    },
+    {
+      "id": 24,
+      "breed": "Pomeranian",
+      "species": "dog",
+      "train": 90,
+      "val": 10,
+      "test": 100
+    },
+    {
+      "id": 25,
+      "breed": "Pug",
+      "species": "dog",
+      "train": 90,
+      "val": 10,
+      "test": 100
+    },
+    {
+      "id": 26,
+      "breed": "Ragdoll",
+      "species": "cat",
+      "train": 90,
+      "val": 10,
+      "test": 100
+    },
+    {
+      "id": 27,
+      "breed": "Russian Blue",
+      "species": "cat",
+      "train": 90,
+      "val": 10,
+      "test": 100
+    },
+    {
+      "id": 28,
+      "breed": "Saint Bernard",
+      "species": "dog",
+      "train": 90,
+      "val": 10,
+      "test": 100
+    },
+    {
+      "id": 29,
+      "breed": "Samoyed",
+      "species": "dog",
+      "train": 90,
+      "val": 10,
+      "test": 100
+    },
+    {
+      "id": 30,
+      "breed": "Scottish Terrier",
+      "species": "dog",
+      "train": 90,
+      "val": 10,
+      "test": 99
+    },
+    {
+      "id": 31,
+      "breed": "Shiba Inu",
+      "species": "dog",
+      "train": 90,
+      "val": 10,
+      "test": 100
+    },
+    {
+      "id": 32,
+      "breed": "Siamese",
+      "species": "cat",
+      "train": 89,
+      "val": 10,
+      "test": 100
+    },
+    {
+      "id": 33,
+      "breed": "Sphynx",
+      "species": "cat",
+      "train": 90,
+      "val": 10,
+      "test": 100
+    },
+    {
+      "id": 34,
+      "breed": "Staffordshire Bull Terrier",
+      "species": "dog",
+      "train": 90,
+      "val": 10,
+      "test": 89
+    },
+    {
+      "id": 35,
+      "breed": "Wheaten Terrier",
+      "species": "dog",
+      "train": 90,
+      "val": 10,
+      "test": 100
+    },
+    {
+      "id": 36,
+      "breed": "Yorkshire Terrier",
+      "species": "dog",
+      "train": 90,
+      "val": 10,
+      "test": 100
+    }
+  ],
+  "geometry": {
+    "quantiles": [
+      0,
+      0.05,
+      0.5,
+      0.95,
+      1
+    ],
+    "width": [
+      114.0,
+      281.0,
+      500.0,
+      500.0,
+      3264.0
+    ],
+    "height": [
+      103.0,
+      225.0,
+      375.0,
+      500.0,
+      2606.0
+    ],
+    "aspect_ratio": [
+      0.42,
+      0.666,
+      1.3333333333333333,
+      1.5060240963855422,
+      2.5641025641025643
+    ]
+  },
+  "color_modes": {
+    "RGB": 7346,
+    "RGBA": 3
+  },
+  "invalid_images": [],
+  "source_archive_md5": {
+    "images.tar.gz": "5c4f3ee8e5d25df40f4fd59a7f44e54c",
+    "annotations.tar.gz": "95a8c909bbe2e81eed6a22bccdf3f68f"
+  },
+  "split_sha256": {
+    "train": "0a151e3456bdf7c9531f6a210c244924e2baff049c8572f97dbb582c80d88ec0",
+    "val": "5a24b8f0148158aec6a039f94a866fa0c04cc5fd8f4974871d838e72cd78ef5d",
+    "test": "529adbdb453f38ca3356bb379ff0960cc613725de6047c5de7c7766bf8ee62c3"
+  },
+  "pretrained_sha256": "c401d219603ac3e20b6373c7b198c78d3a733f80b755d148bda3bc320ae69800"
+}

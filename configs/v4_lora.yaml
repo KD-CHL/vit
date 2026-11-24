@@ -1,0 +1,15 @@
+experiment: v4
+model: vit_base_patch16_224.augreg_in21k_ft_in1k
+augmentation: rand
+batch_size: 32
+accumulate: 2
+epochs: 15
+warmup_epochs: 1
+optimizer: adamw
+lr: 0.001
+weight_decay: 0.05
+label_smoothing: 0.1
+drop_path_rate: 0.1
+gradient_checkpointing: true
+rank: 8
+lora_dropout: 0.1

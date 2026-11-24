@@ -1,0 +1,12 @@
+experiment: v2
+model: vit_base_patch16_224.augreg_in21k_ft_in1k
+augmentation: none
+batch_size: 64
+accumulate: 1
+epochs: 30
+warmup_epochs: 1
+optimizer: adamw
+lr: 0.001
+weight_decay: 0.05
+pool: cls
+feature_batch_size: 32

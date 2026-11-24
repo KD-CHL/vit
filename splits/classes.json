@@ -1,0 +1,187 @@
+[
+  {
+    "id": 0,
+    "breed": "Abyssinian",
+    "species": "cat"
+  },
+  {
+    "id": 1,
+    "breed": "American Bulldog",
+    "species": "dog"
+  },
+  {
+    "id": 2,
+    "breed": "American Pit Bull Terrier",
+    "species": "dog"
+  },
+  {
+    "id": 3,
+    "breed": "Basset Hound",
+    "species": "dog"
+  },
+  {
+    "id": 4,
+    "breed": "Beagle",
+    "species": "dog"
+  },
+  {
+    "id": 5,
+    "breed": "Bengal",
+    "species": "cat"
+  },
+  {
+    "id": 6,
+    "breed": "Birman",
+    "species": "cat"
+  },
+  {
+    "id": 7,
+    "breed": "Bombay",
+    "species": "cat"
+  },
+  {
+    "id": 8,
+    "breed": "Boxer",
+    "species": "dog"
+  },
+  {
+    "id": 9,
+    "breed": "British Shorthair",
+    "species": "cat"
+  },
+  {
+    "id": 10,
+    "breed": "Chihuahua",
+    "species": "dog"
+  },
+  {
+    "id": 11,
+    "breed": "Egyptian Mau",
+    "species": "cat"
+  },
+  {
+    "id": 12,
+    "breed": "English Cocker Spaniel",
+    "species": "dog"
+  },
+  {
+    "id": 13,
+    "breed": "English Setter",
+    "species": "dog"
+  },
+  {
+    "id": 14,
+    "breed": "German Shorthaired",
+    "species": "dog"
+  },
+  {
+    "id": 15,
+    "breed": "Great Pyrenees",
+    "species": "dog"
+  },
+  {
+    "id": 16,
+    "breed": "Havanese",
+    "species": "dog"
+  },
+  {
+    "id": 17,
+    "breed": "Japanese Chin",
+    "species": "dog"
+  },
+  {
+    "id": 18,
+    "breed": "Keeshond",
+    "species": "dog"
+  },
+  {
+    "id": 19,
+    "breed": "Leonberger",
+    "species": "dog"
+  },
+  {
+    "id": 20,
+    "breed": "Maine Coon",
+    "species": "cat"
+  },
+  {
+    "id": 21,
+    "breed": "Miniature Pinscher",
+    "species": "dog"
+  },
+  {
+    "id": 22,
+    "breed": "Newfoundland",
+    "species": "dog"
+  },
+  {
+    "id": 23,
+    "breed": "Persian",
+    "species": "cat"
+  },
+  {
+    "id": 24,
+    "breed": "Pomeranian",
+    "species": "dog"
+  },
+  {
+    "id": 25,
+    "breed": "Pug",
+    "species": "dog"
+  },
+  {
+    "id": 26,
+    "breed": "Ragdoll",
+    "species": "cat"
+  },
+  {
+    "id": 27,
+    "breed": "Russian Blue",
+    "species": "cat"
+  },
+  {
+    "id": 28,
+    "breed": "Saint Bernard",
+    "species": "dog"
+  },
+  {
+    "id": 29,
+    "breed": "Samoyed",
+    "species": "dog"
+  },
+  {
+    "id": 30,
+    "breed": "Scottish Terrier",
+    "species": "dog"
+  },
+  {
+    "id": 31,
+    "breed": "Shiba Inu",
+    "species": "dog"
+  },
+  {
+    "id": 32,
+    "breed": "Siamese",
+    "species": "cat"
+  },
+  {
+    "id": 33,
+    "breed": "Sphynx",
+    "species": "cat"
+  },
+  {
+    "id": 34,
+    "breed": "Staffordshire Bull Terrier",
+    "species": "dog"
+  },
+  {
+    "id": 35,
+    "breed": "Wheaten Terrier",
+    "species": "dog"
+  },
+  {
+    "id": 36,
+    "breed": "Yorkshire Terrier",
+    "species": "dog"
+  }
+]

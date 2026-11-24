@@ -1,0 +1,10 @@
+experiment: v1
+model: resnet18
+augmentation: rand
+batch_size: 64
+accumulate: 1
+epochs: 100
+warmup_epochs: 5
+optimizer: sgd
+lr: 0.05
+weight_decay: 0.0005
