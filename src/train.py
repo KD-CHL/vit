@@ -171,7 +171,12 @@ def train(config, seed, name, workers=6, smoke_limit=None):
         previous = read_json(summary_path)
         if previous["config"] != config or previous["seed"] != seed:
             raise ValueError(f"Run {name} exists with a different configuration.")
-        if previous["complete"] and best_path.exists():
+        if previous["complete"]:
+            if not best_path.exists():
+                raise FileNotFoundError(
+                    f"{name} has archived metrics but no local checkpoint. "
+                    "Set VIT_RESULT_ROOT=reproduction to train in a fresh result directory."
+                )
             print(f"Already complete: {name}", flush=True)
             return previous
 

@@ -1,6 +1,7 @@
 /.venv/
 /data/
 /runs/
+/reproduction/
 /outputs/.work/
 **/__pycache__/
 *.py[cod]

@@ -11,8 +11,9 @@ ROOT = Path(__file__).resolve().parent.parent
 DATA = ROOT / "data" / "oxford-iiit-pet"
 WEIGHTS = ROOT / "data" / "weights" / "vit-b16.safetensors"
 SPLITS = ROOT / "splits"
-RUNS = ROOT / "runs"
-OUTPUTS = ROOT / "outputs"
+RESULT_ROOT = (ROOT / os.environ.get("VIT_RESULT_ROOT", "")).resolve()
+RUNS = RESULT_ROOT / "runs"
+OUTPUTS = RESULT_ROOT / "outputs"
 SEEDS = (42, 123, 2026)
 NUM_CLASSES = 37
 

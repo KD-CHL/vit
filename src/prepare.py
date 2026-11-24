@@ -27,7 +27,7 @@ ARCHIVES = {
 DATA_URL = "https://www.robots.ox.ac.uk/~vgg/data/pets/data/"
 MODEL_URL = (
     "https://huggingface.co/timm/vit_base_patch16_224.augreg_in21k_ft_in1k/"
-    "resolve/main/model.safetensors"
+    "resolve/2ec9fb3d7bb664aac471ac44582c94d18de33780/model.safetensors"
 )
 MODEL_HASH = "c401d219603ac3e20b6373c7b198c78d3a733f80b755d148bda3bc320ae69800"
 SPLIT_SEED = 42

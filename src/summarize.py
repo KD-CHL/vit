@@ -6,7 +6,7 @@ import matplotlib
 matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 
-from .common import OUTPUTS, ROOT, SEEDS, read_json, save_json
+from .common import OUTPUTS, RESULT_ROOT, SEEDS, read_json, save_json
 
 LABELS = {
     "v1": "V1 ResNet-18 从零", "v2": "V2 ViT-B/16 线性探测",
@@ -206,9 +206,25 @@ def add_results(report, summary, all_runs):
         "的首轮启动开销，表示主机获取 batch 时阻塞的时间占单轮耗时的比例。"
         "GPU 异步计算可与这段时间重叠。",
         "",
-        "### 训练与验证曲线",
-        "",
     ]
+    telemetry_path = OUTPUTS / "analysis" / "gpu_utilization.csv"
+    if telemetry_path.exists():
+        with telemetry_path.open(encoding="utf-8-sig", newline="") as stream:
+            telemetry = list(csv.DictReader(stream))
+        observations = []
+        for key in ("v1", "v3", "v4"):
+            values = [int(row["gpu_utilization_pct"]) for row in telemetry
+                      if row["run"] in {f"{key}_s{seed}" for seed in SEEDS}]
+            if values:
+                observations.append(f"{key.upper()} {stats.median(values):g}%（{len(values)} 次）")
+        if observations:
+            report += [
+                f"本机每 5 秒采样一次整卡利用率。主实验中位数为{'、'.join(observations)}。"
+                "采样覆盖训练、验证和存盘间隙。"
+                "[GPU 采样记录](outputs/analysis/gpu_utilization.csv)",
+                "",
+            ]
+    report += ["### 训练与验证曲线", ""]
     for key in LABELS:
         report += [f"![{key.upper()} 三个种子的损失与准确率](outputs/curves/{key}_curves.png)", ""]
     v1_history = all_runs["v1"][1]
@@ -219,11 +235,22 @@ def add_results(report, summary, all_runs):
     v1_runs = all_runs["v1"][0]
     ending = stats.mean(history[-1]["val"]["top1"] for history in v1_history)
     best = stats.mean(run["best_val_top1"] for run in v1_runs)
+    min_val_loss = stats.mean(min(row["val"]["loss"] for row in history) for history in v1_history)
+    end_val_loss = stats.mean(history[-1]["val"]["loss"] for history in v1_history)
+    gap = stats.mean(gaps)
+    interpretation = (
+        "末轮训练准确率仍高于验证集，训练样本拟合与泛化之间存在差距。"
+        if gap > 0 else
+        "在线增强使训练准确率与验证准确率处于不同难度的输入条件下。"
+    )
     report += [
-        f"V1 最后一轮训练 top-1 与验证 top-1 的平均差为 {stats.mean(gaps):+.2f} 个百分点。"
+        f"V1 最后一轮训练 top-1 与验证 top-1 的平均差为 {gap:+.2f} 个百分点。"
         f"验证集最佳 top-1 平均为 {best:.2%}，最后一轮验证 top-1 平均为 {ending:.2%}，"
-        f"下降 {(best - ending) * 100:.2f} 个百分点。"
-        "训练准确率在实时增强后的图片上计算。过拟合程度应结合验证曲线及最优轮次判断。",
+        f"差值为 {(best - ending) * 100:.2f} 个百分点。"
+        f"验证损失从各次运行最低值的平均 {min_val_loss:.3f} 到末轮平均 {end_val_loss:.3f}。"
+        f"{interpretation}训练准确率在实时增强后的图片上计算。",
+        "",
+        "V3 和 V4 的训练损失使用标签平滑，验证损失使用普通交叉熵。",
         "",
     ]
 
@@ -247,6 +274,14 @@ def add_ablations(report, ablations):
             report.append(f"| {label} | {run['best_val_top1']:.2%} | {run['best_epoch']} | "
                           f"{run['parameters_trainable']:,} | {run['peak_bytes'] / GIB:.3f} |")
         report.append("")
+        baseline_label, baseline = entries[0]
+        best_label, best_run = max(entries, key=lambda entry: entry[1]["best_val_top1"])
+        delta = (best_run["best_val_top1"] - baseline["best_val_top1"]) * 100
+        report += [
+            f"本种子验证集表现最高的设置为 {best_label}（{best_run['best_val_top1']:.2%}）。"
+            f"相对表首设置 {baseline_label} 的差值为 {delta:.2f} 个百分点。",
+            "",
+        ]
 
 
 def add_analysis(report, all_runs):
@@ -321,7 +356,8 @@ def add_conclusions(report, summary):
         f"**{v4['parameters_trainable'] / v4['parameters_total']:.2%}**。"
         f"其分配显存峰值为 **{v4['peak_gib']:.3f} GiB**（V3 为 {v3['peak_gib']:.3f} GiB），"
         f"测试 top-1 为 **{v4['top1']['mean']:.2%}**，相对 V3 变化 {gap(v4, v3):+.2f} "
-        "个百分点。V4 仍需保存部分中间激活来更新注意力层的 LoRA 参数。",
+        "个百分点。V3 和 V4 的有效批量相同，单步批量不同。两组显存差值对应表中"
+        "的实测配置。V4 仍需保存部分中间激活来更新注意力层的 LoRA 参数。",
         "",
         "推理对验证集图像 `" + demo["image"] + "` 调用 PEFT 的 `merge_and_unload` "
         f"后输出 top-3。合并前后 top-3 排序一致，最大置信度差值为 "
@@ -348,7 +384,7 @@ def main():
     add_ablations(report, ablations)
     add_analysis(report, all_runs)
     add_conclusions(report, summary)
-    (ROOT / "report.md").write_text("\n".join(report) + "\n", encoding="utf-8")
+    (RESULT_ROOT / "report.md").write_text("\n".join(report) + "\n", encoding="utf-8")
 
 
 if __name__ == "__main__":
