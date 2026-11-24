@@ -1,0 +1,21 @@
+id,path,label,predicted,confidence,true_in_top5
+1,images/pomeranian_44.jpg,Pomeranian,Samoyed,0.5935919,True
+2,images/american_pit_bull_terrier_6.jpg,American Pit Bull Terrier,Boxer,0.5176839,True
+3,images/american_bulldog_91.jpg,American Bulldog,Staffordshire Bull Terrier,0.6209363,True
+4,images/Russian_Blue_8.jpg,Russian Blue,Abyssinian,0.8370548,True
+5,images/Birman_38.jpg,Birman,Ragdoll,0.5188429,True
+6,images/Birman_1.jpg,Birman,Ragdoll,0.5131112,True
+7,images/beagle_95.jpg,Beagle,English Setter,0.2284616,True
+8,images/american_pit_bull_terrier_80.jpg,American Pit Bull Terrier,American Bulldog,0.8613455,True
+9,images/Russian_Blue_264.jpg,Russian Blue,British Shorthair,0.470322,True
+10,images/american_pit_bull_terrier_54.jpg,American Pit Bull Terrier,Staffordshire Bull Terrier,0.6760441,True
+11,images/Ragdoll_245.jpg,Ragdoll,Birman,0.4238838,True
+12,images/staffordshire_bull_terrier_92.jpg,Staffordshire Bull Terrier,American Pit Bull Terrier,0.6358695,True
+13,images/Maine_Coon_238.jpg,Maine Coon,Bombay,0.2492121,True
+14,images/american_pit_bull_terrier_46.jpg,American Pit Bull Terrier,Staffordshire Bull Terrier,0.4860268,True
+15,images/Persian_224.jpg,Persian,Maine Coon,0.220731,False
+16,images/chihuahua_31.jpg,Chihuahua,Miniature Pinscher,0.5705065,True
+17,images/american_pit_bull_terrier_191.jpg,American Pit Bull Terrier,Staffordshire Bull Terrier,0.2878551,True
+18,images/american_pit_bull_terrier_1.jpg,American Pit Bull Terrier,Staffordshire Bull Terrier,0.8550057,True
+19,images/american_pit_bull_terrier_48.jpg,American Pit Bull Terrier,Staffordshire Bull Terrier,0.6730195,True
+20,images/beagle_69.jpg,Beagle,Basset Hound,0.6117387,True

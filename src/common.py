@@ -4,9 +4,6 @@ import os
 import random
 from pathlib import Path
 
-import numpy as np
-import torch
-
 ROOT = Path(__file__).resolve().parent.parent
 DATA = ROOT / "data" / "oxford-iiit-pet"
 WEIGHTS = ROOT / "data" / "weights" / "vit-b16.safetensors"
@@ -48,18 +45,25 @@ def read_json(path):
 
 
 def save_checkpoint(path, obj):
+    import torch
+
     temporary = path.with_suffix(path.suffix + ".part")
     torch.save(obj, temporary)
     os.replace(temporary, path)
 
 
 def seed_all(seed):
+    import numpy as np
+    import torch
+
     random.seed(seed)
     np.random.seed(seed)
     torch.manual_seed(seed)
 
 
 def device_and_amp():
+    import torch
+
     if not torch.cuda.is_available():
         raise RuntimeError("CUDA is required for the experiment suite.")
     torch.set_float32_matmul_precision("high")

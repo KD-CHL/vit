@@ -1,0 +1,31 @@
+{
+  "complete": true,
+  "config": {
+    "experiment": "v1",
+    "model": "resnet18",
+    "augmentation": "rand",
+    "batch_size": 64,
+    "accumulate": 1,
+    "epochs": 100,
+    "warmup_epochs": 5,
+    "optimizer": "sgd",
+    "lr": 0.05,
+    "weight_decay": 0.0005
+  },
+  "seed": 123,
+  "workers": 6,
+  "pin_memory": true,
+  "device": "NVIDIA GeForce RTX 5060 Ti",
+  "amp": "torch.bfloat16",
+  "torch": "2.11.0+cu128",
+  "cuda": "12.8",
+  "parameters_trainable": 11195493,
+  "parameters_total": 11195493,
+  "best_val_top1": 0.7608695652173914,
+  "best_epoch": 96,
+  "feature_extraction": null,
+  "peak_bytes": 979509248,
+  "median_train_seconds": 2.6910478500358295,
+  "median_train_ips": 1230.7493350434934,
+  "total_training_seconds": 334.7735652003321
+}

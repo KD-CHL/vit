@@ -1,0 +1,36 @@
+{
+  "complete": true,
+  "config": {
+    "experiment": "v2",
+    "model": "vit_base_patch16_224.augreg_in21k_ft_in1k",
+    "augmentation": "none",
+    "batch_size": 64,
+    "accumulate": 1,
+    "epochs": 30,
+    "warmup_epochs": 1,
+    "optimizer": "adamw",
+    "lr": 0.001,
+    "weight_decay": 0.05,
+    "pool": "cls",
+    "feature_batch_size": 32
+  },
+  "seed": 2026,
+  "workers": 6,
+  "pin_memory": true,
+  "device": "NVIDIA GeForce RTX 5060 Ti",
+  "amp": "torch.bfloat16",
+  "torch": "2.11.0+cu128",
+  "cuda": "12.8",
+  "parameters_trainable": 28453,
+  "parameters_total": 85827109,
+  "best_val_top1": 0.9592391304347826,
+  "best_epoch": 16,
+  "feature_extraction": {
+    "seconds": 35.394901300023776,
+    "peak_bytes": 546536960
+  },
+  "peak_bytes": 18796032,
+  "median_train_seconds": 0.04562420002184808,
+  "median_train_ips": 72593.0569329845,
+  "total_training_seconds": 7.608712999965064
+}

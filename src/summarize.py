@@ -219,9 +219,13 @@ def add_results(report, summary, all_runs):
                 observations.append(f"{key.upper()} {stats.median(values):g}%（{len(values)} 次）")
         if observations:
             report += [
-                f"本机每 5 秒采样一次整卡利用率。主实验中位数为{'、'.join(observations)}。"
+                f"本机每 5 秒采样一次整卡利用率。主实验中位数分别为 {'、'.join(observations)}。"
                 "采样覆盖训练、验证和存盘间隙。"
                 "[GPU 采样记录](outputs/analysis/gpu_utilization.csv)",
+                "",
+                "V3 和 V4 的主机取批等待占比低，整卡利用率较高。V1 的训练轮短，取批等待"
+                "占比明显较高。整卡采样也包含验证和存盘间隙，定位 V1 的 GPU 空闲来源"
+                "还需要逐批记录数据加载与 GPU 内核时间。",
                 "",
             ]
     report += ["### 训练与验证曲线", ""]
@@ -239,7 +243,7 @@ def add_results(report, summary, all_runs):
     end_val_loss = stats.mean(history[-1]["val"]["loss"] for history in v1_history)
     gap = stats.mean(gaps)
     interpretation = (
-        "末轮训练准确率仍高于验证集，训练样本拟合与泛化之间存在差距。"
+        "末轮训练准确率略高于验证集。结合验证损失接近最低值，训练末期的过拟合迹象较轻。"
         if gap > 0 else
         "在线增强使训练准确率与验证准确率处于不同难度的输入条件下。"
     )
@@ -274,14 +278,14 @@ def add_ablations(report, ablations):
             report.append(f"| {label} | {run['best_val_top1']:.2%} | {run['best_epoch']} | "
                           f"{run['parameters_trainable']:,} | {run['peak_bytes'] / GIB:.3f} |")
         report.append("")
-        baseline_label, baseline = entries[0]
-        best_label, best_run = max(entries, key=lambda entry: entry[1]["best_val_top1"])
-        delta = (best_run["best_val_top1"] - baseline["best_val_top1"]) * 100
-        report += [
-            f"本种子验证集表现最高的设置为 {best_label}（{best_run['best_val_top1']:.2%}）。"
-            f"相对表首设置 {baseline_label} 的差值为 {delta:.2f} 个百分点。",
-            "",
-        ]
+        ranked = sorted(entries, key=lambda entry: entry[1]["best_val_top1"], reverse=True)
+        (best_label, best_run), (_, next_run) = ranked[:2]
+        delta = (best_run["best_val_top1"] - next_run["best_val_top1"]) * 100
+        if delta > 0:
+            report += [f"种子 42 下，{best_label} 的最佳验证 top-1 比次高设置高 "
+                       f"{delta:.2f} 个百分点。", ""]
+        else:
+            report += ["种子 42 下，至少两种设置取得了相同的最佳验证 top-1。", ""]
 
 
 def add_analysis(report, all_runs):
@@ -315,9 +319,10 @@ def add_analysis(report, all_runs):
         if {row["path"] for row in ordered} != set(reviewed):
             raise ValueError("Error observations do not match the selected sample paths.")
         counts = Counter(reviewed[row["path"]]["category"] for row in ordered)
+        in_top5 = sum(row["true_in_top5"] == "True" for row in ordered)
         report.append("按主要可见问题归类，" + "、".join(
             f"{category} {count} 张" for category, count in counts.items()
-        ) + "。")
+        ) + f"。其中 {in_top5} 张的标注品种仍位于模型的 top-5。")
         report += ["", "| 编号 | 标注 → 预测 | 主要类型 | 图像观察 |",
                    "| --- | --- | --- | --- |"]
         for row in ordered:
@@ -343,18 +348,29 @@ def add_conclusions(report, summary):
     v1, v2, v3, v4 = (summary[key] for key in LABELS)
     gap = lambda a, b: (a["top1"]["mean"] - b["top1"]["mean"]) * 100
     demo = read_json(OUTPUTS / "analysis" / "lora_merged_prediction.json")
+    probe_result = gap(v2, v3)
+    if probe_result >= 0:
+        probe_conclusion = (
+            f"线性探测的测试 top-1 比全量微调高 **{probe_result:.2f} 个百分点**。"
+            "本次设置下，冻结主干更节省训练算力。"
+        )
+    else:
+        probe_conclusion = (
+            f"全量微调将测试 top-1 提高 **{-probe_result:.2f} 个百分点**，"
+            "代价是每轮运行完整骨干的前向和反向传播。"
+        )
+    memory_savings = 1 - v4["peak_gib"] / v3["peak_gib"]
     report += [
         "## 6 实验结论与推理",
         "",
         f"1. V3 的测试 top-1 相对 V1 变化 **{gap(v3, v1):+.2f} 个百分点**。"
         "这个差值反映从随机初始化的 ResNet-18 切换到预训练 ViT-B/16 全量微调后的综合收益。"
         "两组同时改变了骨干、初始化和优化配置，单独估计预训练收益需要增加同架构的随机初始化对照。",
-        f"2. 解冻 ViT 主干后，V3 的测试 top-1 相对 V2 变化 **{gap(v3, v2):+.2f} 个百分点**，"
-        f"单轮训练耗时由分类头拟合的 {v2['median_epoch_seconds']:.2f} s 变为 "
-        f"{v3['median_epoch_seconds']:.2f} s。V2 的骨干前向一次性开销见第 3 节。",
+        f"2. {probe_conclusion}V2 每轮拟合分类头用 {v2['median_epoch_seconds']:.2f} s，"
+        f"另有第 3 节的特征抽取开销。V3 每轮训练用 {v3['median_epoch_seconds']:.2f} s。",
         f"3. V4 更新 **{v4['parameters_trainable']:,}** 个参数，占自身总参数 "
         f"**{v4['parameters_trainable'] / v4['parameters_total']:.2%}**。"
-        f"其分配显存峰值为 **{v4['peak_gib']:.3f} GiB**（V3 为 {v3['peak_gib']:.3f} GiB），"
+        f"其分配显存峰值为 **{v4['peak_gib']:.3f} GiB**，较 V3 低 {memory_savings:.1%}，"
         f"测试 top-1 为 **{v4['top1']['mean']:.2%}**，相对 V3 变化 {gap(v4, v3):+.2f} "
         "个百分点。V3 和 V4 的有效批量相同，单步批量不同。两组显存差值对应表中"
         "的实测配置。V4 仍需保存部分中间激活来更新注意力层的 LoRA 参数。",

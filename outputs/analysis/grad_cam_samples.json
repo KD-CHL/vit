@@ -1,0 +1,62 @@
+[
+  {
+    "path": "images/Ragdoll_35.jpg",
+    "label": 26,
+    "v1_prediction": 6,
+    "v3_prediction": 6
+  },
+  {
+    "path": "images/beagle_61.jpg",
+    "label": 4,
+    "v1_prediction": 3,
+    "v3_prediction": 4
+  },
+  {
+    "path": "images/american_bulldog_207.jpg",
+    "label": 1,
+    "v1_prediction": 1,
+    "v3_prediction": 1
+  },
+  {
+    "path": "images/scottish_terrier_60.jpg",
+    "label": 30,
+    "v1_prediction": 30,
+    "v3_prediction": 30
+  },
+  {
+    "path": "images/Egyptian_Mau_43.jpg",
+    "label": 11,
+    "v1_prediction": 11,
+    "v3_prediction": 11
+  },
+  {
+    "path": "images/chihuahua_25.jpg",
+    "label": 10,
+    "v1_prediction": 33,
+    "v3_prediction": 10
+  },
+  {
+    "path": "images/British_Shorthair_278.jpg",
+    "label": 9,
+    "v1_prediction": 9,
+    "v3_prediction": 9
+  },
+  {
+    "path": "images/Bengal_75.jpg",
+    "label": 5,
+    "v1_prediction": 5,
+    "v3_prediction": 5
+  },
+  {
+    "path": "images/scottish_terrier_41.jpg",
+    "label": 30,
+    "v1_prediction": 30,
+    "v3_prediction": 30
+  },
+  {
+    "path": "images/beagle_28.jpg",
+    "label": 4,
+    "v1_prediction": 3,
+    "v3_prediction": 4
+  }
+]

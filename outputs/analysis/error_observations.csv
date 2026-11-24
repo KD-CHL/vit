@@ -1,0 +1,21 @@
+path,category,observation
+images/pomeranian_44.jpg,构图与遮挡,画面以浅色蓬松头胸为主。近景裁去身体与腿部，难以判断体型。
+images/american_pit_bull_terrier_6.jpg,构图与遮挡,狗站在雪中且靠左，身体部分出框。暗色短口鼻和垂耳是清楚可见的特征。
+images/american_bulldog_91.jpg,外观相似,正向走来的狗呈宽头、虎斑和白胸，面部和被毛与预测品种相近。
+images/Russian_Blue_8.jpg,光照与画质,深色背景上的毛发表现为浅灰偏暖，耳部突出，灰蓝被毛线索较弱。
+images/Birman_38.jpg,外观相似,浅色长毛、深色耳尖和面罩与 Ragdoll 相似。闭眼和伏卧减少了眼色与头部轮廓信息。
+images/Birman_1.jpg,构图与遮挡,猫夹在绿白色物体之间，下半身被遮挡。蓝眼和深色重点纹仍可见，两类都具有这些特征。
+images/beagle_95.jpg,构图与遮挡,草地占画面大部分，幼犬离镜头较远。脸部细节有限，棕白斑与下垂耳较显眼。
+images/american_pit_bull_terrier_80.jpg,构图与遮挡,俯拍近景主要显示白色头部。人的手托在头侧，躯干和四肢比例难以辨认。
+images/Russian_Blue_264.jpg,外观相似,灰色短毛和侧视中偏圆的脸与 British Shorthair 相近，眼睛细节弱。
+images/american_pit_bull_terrier_54.jpg,外观相似,虎斑、白胸和短而宽的头部与 Staffordshire Bull Terrier 相近。室内俯视改变了躯干比例。
+images/Ragdoll_245.jpg,构图与遮挡,近景只保留深面罩、蓝眼和浅色颈毛，这几处线索也见于 Birman。
+images/staffordshire_bull_terrier_92.jpg,外观相似,白底全身照可见宽头、折耳和粗壮前躯，与 American Pit Bull Terrier 的轮廓相近。
+images/Maine_Coon_238.jpg,光照与画质,逆光使背部变暗，侧面黑白块清楚，毛发长度和脸部轮廓较难看清。
+images/american_pit_bull_terrier_46.jpg,外观相似,头部轮廓、灰白配色和肌肉发达的前躯近似预测品种，胸背带盖住部分胸口。
+images/Persian_224.jpg,光照与画质,图像偏洋红且细节模糊。身体长毛可见，口鼻轮廓不清，标注品种跌出 top-5。
+images/chihuahua_31.jpg,外观相似,直立大耳、黑褐相间的短毛和较细的四肢与 Miniature Pinscher 相近。
+images/american_pit_bull_terrier_191.jpg,光照与画质,黑色毛发接近阴影亮度，眼周、嘴部和耳廓细节弱。
+images/american_pit_bull_terrier_1.jpg,外观相似,卧姿中可见虎斑、白胸和宽头。两类共有这些线索，暗背景也压低了躯干轮廓的对比。
+images/american_pit_bull_terrier_48.jpg,外观相似,侧面显示短毛、宽口鼻和白胸，外观接近 Staffordshire Bull Terrier。
+images/beagle_69.jpg,构图与遮挡,趴卧近景突出了长垂耳与棕白面部，腿长和身体比例基本不可见。

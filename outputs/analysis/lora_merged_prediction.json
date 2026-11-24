@@ -1,0 +1,35 @@
+{
+  "image": "images/Siamese_207.jpg",
+  "label": "Siamese",
+  "lora_merged": true,
+  "top3": [
+    {
+      "breed": "Siamese",
+      "confidence": 0.9419872164726257
+    },
+    {
+      "breed": "Ragdoll",
+      "confidence": 0.009191504679620266
+    },
+    {
+      "breed": "Sphynx",
+      "confidence": 0.007444372400641441
+    }
+  ],
+  "unmerged_top3": [
+    {
+      "breed": "Siamese",
+      "confidence": 0.9419872164726257
+    },
+    {
+      "breed": "Ragdoll",
+      "confidence": 0.009191513061523438
+    },
+    {
+      "breed": "Sphynx",
+      "confidence": 0.007444383110851049
+    }
+  ],
+  "top3_agreement": true,
+  "max_score_delta": 1.0710209608078003e-08
+}
